@@ -3,7 +3,7 @@ import constants
 from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
-from game.casting.player import Player
+from game.casting.cyclist import Cyclist
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -21,7 +21,7 @@ def main():
     # create the cast
     cast = Cast()
     cast.add_actor("foods", Food())
-    cast.add_actor("players", Player())
+    cast.add_actor("players", Cyclist())
     cast.add_actor("scores", Score())
    
     # start the game
