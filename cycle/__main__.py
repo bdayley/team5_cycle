@@ -20,11 +20,17 @@ def main():
     
     # create the cast
     cast = Cast()
-    # Change initiation
+    # Change start
     # cast.add_actor("foods", Food())
     # change ends
+    
+    # Change start 
+    # adding two cylyst and two scores
+    cast.add_actor("cyclist", Cyclist())
     cast.add_actor("cyclist", Cyclist())
     cast.add_actor("scores", Score())
+    cast.add_actor("scores", Score())
+    # Change ends
    
     # initiate the services
     keyboard_service = KeyboardService()
