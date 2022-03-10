@@ -26,7 +26,9 @@ class HandleCollisionsAction(Action):
             script (Script): The script of Actions in the game.
         """
         if not self._is_game_over:
-            self._handle_food_collision(cast)
+            # start change
+            # self._handle_food_collision(cast)
+            # end change
             self._handle_segment_collision(cast)
             self._handle_game_over(cast)
 
@@ -37,15 +39,19 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         score = cast.get_first_actor("scores")
-        food = cast.get_first_actor("foods")
+        # start change
+        # food = cast.get_first_actor("foods")
+        # end change
         cyclist = cast.get_first_actor("cyclist")
         head = cyclist.get_head()
-
+        """
+        Initiate change 
         if head.get_position().equals(food.get_position()):
             points = food.get_points()
             cyclist.grow_tail(points)
             score.add_points(points)
             food.reset()
+        """
     
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
@@ -70,8 +76,9 @@ class HandleCollisionsAction(Action):
         if self._is_game_over:
             cyclist = cast.get_first_actor("cyclist")
             segments = cyclist.get_segments()
-            food = cast.get_first_actor("foods")
-
+            # start change
+            # food = cast.get_first_actor("foods")
+            # end change
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
@@ -83,4 +90,6 @@ class HandleCollisionsAction(Action):
 
             for segment in segments:
                 segment.set_color(constants.WHITE)
-            food.set_color(constants.WHITE)
+            # start change
+            # food.set_color(constants.WHITE)
+            # end change
