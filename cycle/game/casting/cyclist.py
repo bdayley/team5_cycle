@@ -5,12 +5,10 @@ from game.shared.point import Point
 
 class Cyclist(Actor):
     """
-    A long limbless reptile.
+    A Cyclist .
     
-    The responsibility of Snake is to move itself.
+    The responsibility of Cyclist is to move itself.
 
-    Attributes:
-        _points (int): The number of points the food is worth.
     """
     def __init__(self):
         super().__init__()
