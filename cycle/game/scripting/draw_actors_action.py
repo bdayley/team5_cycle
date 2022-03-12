@@ -26,7 +26,7 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        score = cast.get_first_actor("scores")
+        # score = cast.get_first_actor("scores") remove score from game
         
         # start change
         # food = cast.get_first_actor("foods")
@@ -51,7 +51,7 @@ class DrawActorsAction(Action):
         #start change
         self._video_service.draw_actors(segments)   # Cyclist 1
         self._video_service.draw_actors(segments2)  # Cyclist 2
-        self._video_service.draw_actor(score)
+        # self._video_service.draw_actor(score) remove score from game
         self._video_service.draw_actors(messages, True)   #Cyclist 1
         self._video_service.draw_actors(messages2, True)  #Cyclist 2
         self._video_service.flush_buffer()
