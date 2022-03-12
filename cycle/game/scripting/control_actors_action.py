@@ -76,6 +76,7 @@ class ControlActorsAction(Action):
         if self._keyboard_service.is_key_down('k'):
             self._direction = Point(0, constants.CELL_SIZE)
             player = 2
+            
         if player == 2:
            cyclist = cast.get_second_actor("cyclist")
            cyclist.turn_head(self._direction)
