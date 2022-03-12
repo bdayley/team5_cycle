@@ -28,7 +28,7 @@ def main():
     # adding two cylyst and two scores
     cast.add_actor("cyclist", Cyclist())
     cast.add_actor("cyclist", Cyclist())
-    # cast.add_actor("scores", Score())
+    # cast.add_actor("scores", Score()) remove score
     # cast.add_actor("scores", Score())
     # Change ends
    
