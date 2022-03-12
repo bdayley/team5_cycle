@@ -55,6 +55,7 @@ class ControlActorsAction(Action):
         if player == 1:
            cyclist = cast.get_first_actor("cyclist")
            cyclist.turn_head(self._direction)
+           cyclist.grow_tail(1) # tail grows as it moves
 
         # Second actor
         # left
@@ -79,4 +80,5 @@ class ControlActorsAction(Action):
         if player == 2:
            cyclist = cast.get_second_actor("cyclist")
            cyclist.turn_head(self._direction)
+           cyclist.grow_tail(1) # tail grows as it moves
         # end change

@@ -26,19 +26,33 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        score = cast.get_first_actor("scores")
+        # score = cast.get_first_actor("scores") remove score from game
+        
         # start change
         # food = cast.get_first_actor("foods")
         # end change
+
         cyclist = cast.get_first_actor("cyclist")
         segments = cyclist.get_segments()
         messages = cast.get_actors("messages")
 
+        #start change
+        cyclist2 = cast.get_second_actor("cyclist")
+        segments2 = cyclist2.get_segments()
+        messages2 = cast.get_actors("messages")
+        #end change
+
         self._video_service.clear_buffer()
+
         # start change
         # self._video_service.draw_actor(food)
         # end change
-        self._video_service.draw_actors(segments)
-        self._video_service.draw_actor(score)
-        self._video_service.draw_actors(messages, True)
+
+        #start change
+        self._video_service.draw_actors(segments)   # Cyclist 1
+        self._video_service.draw_actors(segments2)  # Cyclist 2
+        # self._video_service.draw_actor(score) remove score from game
+        self._video_service.draw_actors(messages, True)   #Cyclist 1
+        self._video_service.draw_actors(messages2, True)  #Cyclist 2
         self._video_service.flush_buffer()
+        #end change

@@ -2,7 +2,7 @@
 
 from game.casting.cast import Cast
 # from game.casting.food import Food (removing food from the game)
-from game.casting.score import Score
+# from game.casting.score import Score (removing score from the game)
 from game.casting.cyclist import Cyclist
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
@@ -28,8 +28,8 @@ def main():
     # adding two cylyst and two scores
     cast.add_actor("cyclist", Cyclist())
     cast.add_actor("cyclist", Cyclist())
-    cast.add_actor("scores", Score())
-    cast.add_actor("scores", Score())
+    # cast.add_actor("scores", Score()) remove score
+    # cast.add_actor("scores", Score())
     # Change ends
    
     # initiate the services
