@@ -1,4 +1,5 @@
 import constants
+import random
 from game.casting.actor import Actor
 from game.shared.point import Point
 
@@ -12,6 +13,7 @@ class Cyclist(Actor):
     """
     def __init__(self):
         super().__init__()
+        self._position = Point(random.randint(100,200),random.randint(300,400))
         self._segments = []
         self._prepare_body()
 
