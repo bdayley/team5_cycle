@@ -1,5 +1,7 @@
 # import constants (unused)
 
+# from asyncio.proactor_events import constants
+import constants
 from game.casting.cast import Cast
 # from game.casting.food import Food (removing food from the game)
 # from game.casting.score import Score (removing score from the game)
@@ -25,9 +27,9 @@ def main():
     # change ends
     
     # Change start 
-    # adding two cylyst and two scores
-    cast.add_actor("cyclist", Cyclist())
-    cast.add_actor("cyclist", Cyclist())
+    # adding two cyclist and two scores
+    cast.add_actor("cyclist", Cyclist(constants.LEFT))
+    cast.add_actor("cyclist", Cyclist(constants.RIGHT))
     # cast.add_actor("scores", Score()) remove score
     # cast.add_actor("scores", Score())
     # Change ends

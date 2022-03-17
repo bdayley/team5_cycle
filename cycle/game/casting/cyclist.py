@@ -11,8 +11,9 @@ class Cyclist(Actor):
     The responsibility of Cyclist is to move itself.
 
     """
-    def __init__(self):
+    def __init__(self, side):
         super().__init__()
+        self._side = side
         self._position = Point(random.randint(100,200),random.randint(300,400))
         self._segments = []
         self._prepare_body()
@@ -52,8 +53,13 @@ class Cyclist(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 2)
-        y = int(constants.MAX_Y / 2)
+        if self._side == constants.LEFT:
+            x = int(constants.MAX_X/ 2)
+            y = int(constants.MAX_Y / 4)
+        else:
+            x = int(constants.MAX_X / 2)
+            y = int(3 * constants.MAX_Y / 4)
+            
 
         for i in range(constants.PLAYER_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)

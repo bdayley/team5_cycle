@@ -40,24 +40,34 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        cyclist = cast.get_first_actor("cyclist")
-        head = cyclist.get_segments()[0]
-        segments = cyclist.get_segments()[1:]
+        cyclist1 = cast.get_first_actor("cyclist")
+        head1 = cyclist1.get_segments()[0]
+        segments1 = cyclist1.get_segments()[1:]
         
-        for segment in segments:
-            if head.get_position().equals(segment.get_position()):
-                self._is_game_over = True
-                self._player = 1
+      #   for segment in segments:
+      #       if head.get_position().equals(segment.get_position()):
+      #           self._is_game_over = True
+      #           self._player = 1
         
         #start change - adding second cyclist
-        cyclist = cast.get_second_actor("cyclist")
-        head = cyclist.get_segments()[0]
-        segments = cyclist.get_segments()[1:]
+        cyclist2 = cast.get_second_actor("cyclist")
+        head2 = cyclist2.get_segments()[0]
+        segments2 = cyclist2.get_segments()[1:]
         
-        for segment in segments:
-            if head.get_position().equals(segment.get_position()):
-                self._is_game_over = True
-                self._player = 2
+        for segment1 in segments1:
+           for segment2 in segments2:
+               # print("head1 pos, seg2 pos", head1.get_position().get_x(), head1.get_position().get_y(), \
+                  # head2.get_position().get_x(), head2.get_position().get_y(), \
+                  # segment2.get_position().get_x(), segment2.get_position().get_y())
+               if head1.get_position().equals(segment2.get_position()) or \
+                  head2.get_position().equals(segment1.get_position()):# or \
+                  # head2.get_position().equals(head1.get_position()):
+                  self._is_game_over = True
+                  # print("collision")
+                  break
+                  #  self._player = 2
+
+
         #end change
         
     def _handle_game_over(self, cast):
@@ -66,19 +76,14 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        # start change
-        if self._is_game_over and (self._player == 1 or self._player == 2):
+        
+        if self._is_game_over: # and (self._player == 1 or self._player == 2):
             cyclist = cast.get_first_actor("cyclist")
             segments = cyclist.get_segments()
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
-
-            message = Actor()
-            message.set_text("Game Over!")
-            message.set_position(position)
-            cast.add_actor("messages", message)
-
+            
             for segment in segments:
                 segment.set_color(constants.WHITE)
 
@@ -88,11 +93,10 @@ class HandleCollisionsAction(Action):
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
 
+            for segment in segments:
+                segment.set_color(constants.WHITE)
+
             message = Actor()
             message.set_text("Game Over!")
             message.set_position(position)
             cast.add_actor("messages", message)
-
-            for segment in segments:
-                segment.set_color(constants.WHITE)
-            # end change
